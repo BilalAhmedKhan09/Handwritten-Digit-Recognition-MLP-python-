@@ -31,8 +31,7 @@ def predict(path):
     arr = np.array(Image.fromarray(arr.astype(np.uint8)).resize((28, 28)), dtype=float) / 255.0
     plt.imshow(arr.reshape(28, 28), cmap="gray")
     plt.title("What the model sees"); plt.show()
-    probs = model.predict_proba([arr.flatten()])[0]
-    pred  = np.argmax(probs)
+    pred = model.predict([arr.flatten()])[0]
     print(f"Predicted: {pred}")
 
 
@@ -43,7 +42,7 @@ digits = list(range(10))
 tp = [report[str(d)]['precision'] for d in digits]
 fp = [1 - report[str(d)]['precision'] for d in digits]
 x = np.arange(10)
-width = 0.35
+width = 0.5
 plt.bar(x - width/2, tp, width, label="True Positive",  color="steelblue")
 plt.bar(x + width/2, fp, width, label="False Positive", color="red")
 plt.xticks(x)
