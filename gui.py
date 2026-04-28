@@ -35,7 +35,7 @@ def predict_and_show(arr28):
     axes[1].set_xlabel('Digit'); axes[1].set_ylabel('Confidence')
     axes[1].set_title('Prediction Confidence per Digit')
     plt.tight_layout(); plt.show()
-    print(f' Predicted: {pred}  (confidence: {proba[pred]*100:.1f}%)')
+    print(f'✅ Predicted: {pred}  (confidence: {proba[pred]*100:.1f}%)')
 
 def predict_canvas(data_url):
     with out:
@@ -62,9 +62,10 @@ upload_pred_btn = widgets.Button(description='🔍 Predict Image',
                                   layout=widgets.Layout(width='180px'))
 upload_pred_btn.on_click(on_predict_upload)
 
+# ── THE FIX: display HTML separately OUTSIDE any widget container ─────────────
 display(HTML("""
 <div style="font-family:sans-serif">
-  <h3> Draw a digit (0–9) below:</h3>
+  <h3>✏️ Draw a digit (0–9) below:</h3>
   <canvas id="dc" width="300" height="300"
     style="border:3px solid #444; border-radius:8px;
            background:#000; cursor:crosshair; display:block;"></canvas>
