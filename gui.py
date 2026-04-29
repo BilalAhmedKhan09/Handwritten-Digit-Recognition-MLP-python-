@@ -62,7 +62,7 @@ upload_pred_btn = widgets.Button(description='🔍 Predict Image',
                                   layout=widgets.Layout(width='180px'))
 upload_pred_btn.on_click(on_predict_upload)
 
-# ── THE FIX: display HTML separately OUTSIDE any widget container ─────────────
+
 display(HTML("""
 <div style="font-family:sans-serif">
   <h3>✏️ Draw a digit (0–9) below:</h3>
